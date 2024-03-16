@@ -6,10 +6,10 @@ const serverPort = config.serverPort;
 const mongoDBName = config.mongoDBName;
 const server = require('http').createServer(app);
 const serverUse=require('./lib/serverUse');
-const houseRestApi = require("./lib/rest_api/house");
+const houseDevRestApi = require("./lib/rest_api/houseDev");
 console.log(config)
 dataBaseInit.mongoDBInit(mongoDBName);
 serverUse.on(app);
-houseRestApi.on(app);
+houseDevRestApi.on(app);
 server.listen(process.env.PORT||serverPort);
 console.log("現在使用" + serverPort + "port");
